@@ -6,18 +6,17 @@ html{
 header{
     background-color: rgb(235, 184, 193);
     width: 100%;
-
 }
 
 h1{
     display : flex ;
     justify-content: space-around;
 }
+
 .all-article{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-
 }
 
 .all-article h2{
@@ -26,8 +25,16 @@ h1{
     padding-top: 15px;
 }
 
+.all-article p{
+    opacity : 0;
+    transition : opacity .6s;
+}
+
+.all-article  p:hover{
+    opacity : 1;
+}
+
 .article1, .article2, .article3,.article4, .addedArticle  p{
-   
     padding-top: 15px;
 }
 
