@@ -9,7 +9,11 @@ header{
 
 h1{
     display : flex ;
-    padding-right: 150px;
+    justify-content: space-around;
+}
+
+h2{
+    display : flex ;
     justify-content: space-around;
 }
 
