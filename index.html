@@ -61,8 +61,8 @@
                     <label for="pic-description">Picture description :</label>
                     <textarea name="pic-description" id="pic-description" placeholder="Description"></textarea>
                 </div>
-                <div class="button">
-                    <button type="submit" onclick="addArticle()">Send picture</button>
+                <div class="send-button">
+                    <button type="button" id="btn-send" onclick="addArticle()">Send article</button>
                 </div>
 
             </form>
@@ -76,13 +76,23 @@
     
 
     <script>
-        let button;
-
+      
         function addArticle(){
-            alert('test !')
+            const allArticle = document.querySelector('div');
+
+            let division = document.createElement('div');
+            division.setAttribute('class', 'addedArticle');
+            allArticle.appendChild(division);
+
+            let title = document.createElement('h2');
+            title.textContent = document.getElementById("pic-title").value;
+            division.appendChild(title);
+
+            let description = document.createElement('p');
+            description.textContent = document.getElementById("pic-description").value;
+            division.appendChild(description);
 
         }
-        window.onload = ok;
     </script>
 </body>
 </html>
