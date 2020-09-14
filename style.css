@@ -15,19 +15,21 @@ h1{
 
 
 .article1 img, .article2 img, .addedArticle img, .article3 img, .article4 img{
-    
+    position: center;
     text-align: center;
     padding-right: 15px;
     padding-bottom: 15px;
-    height: 300px;
-    width : 300px;
+    height: 500px;
+    width : 500px;
 
 }
 
-.article1 p, .article2 p,.article3 p,.article4 p{
+.article1 p, .article2 p,.article3 p,.article4 p, .addedArticle p{
     position: absolute;
-    height: 300px;
-    width : 300px;
+    height: 500px;
+    width : 500px;
+
+    color: aqua;
 }
 .formulaire{
     text-align: center;
@@ -50,4 +52,4 @@ footer{
 
 .all-article  p:hover{
     opacity : 1;
-}
+}   
