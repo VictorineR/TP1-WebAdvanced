@@ -1,3 +1,43 @@
 header{
     background-color: rgb(235, 184, 193);
+    width: 100%;
+
+}
+
+h1{
+    display : flex ;
+    justify-content: space-around;
+}
+.all-article{
+    margin-top: 35px;
+    margin-bottom: 45px;
+}
+
+.all-article h2{
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-align: justify;
+    padding-top: 15px;
+}
+
+.article1, .article2, .article3,.article4  p{
+    text-align: justify;
+    padding-top: 15px;
+}
+
+.article1 img, .article3 img{
+    float : left;
+    text-align: center;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    text-indent: 0px;
+
+}
+.article2 img, .article4 img{
+    float : right;
+    text-align: center;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    text-indent: 0px;
+    
 }
