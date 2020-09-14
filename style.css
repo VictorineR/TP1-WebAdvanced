@@ -2,7 +2,6 @@ html{
     background-color: #fff;
 }
 
-
 header{
     background-color: rgb(235, 184, 193);
     width: 100%;
@@ -10,24 +9,23 @@ header{
 
 h1{
     display : flex ;
+    padding-right: 150px;
     justify-content: space-around;
 }
-
 
 .article1 img, .article2 img, .addedArticle img, .article3 img, .article4 img{
     position: center;
     text-align: center;
     padding-right: 15px;
     padding-bottom: 15px;
-    height: 500px;
-    width : 500px;
-
+    height: 300px;
+    width : 300px;
 }
 
 .article1 p, .article2 p,.article3 p,.article4 p, .addedArticle p{
     position: absolute;
-    height: 500px;
-    width : 500px;
+    height: 300px;
+    width : 300px;
 
     color: aqua;
 }
@@ -52,4 +50,11 @@ footer{
 
 .all-article  p:hover{
     opacity : 1;
+}
+
+.all-article {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
 }
