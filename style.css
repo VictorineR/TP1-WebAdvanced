@@ -15,6 +15,7 @@ h1{
 
 .all-article{
     display: flex;
+    position: relative;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -26,6 +27,8 @@ h1{
 }
 
 .all-article p{
+    position: absolute;
+    
     opacity : 0;
     transition : opacity .6s;
 }
@@ -44,9 +47,8 @@ h1{
     padding-right: 15px;
     padding-bottom: 15px;
     text-indent: 0px;
-    height: 230px;
-    width : 150px;
-
+    height: 530px;
+    width : 530px;
 }
 .article2 img, .article4 img{
     float : right;
@@ -54,9 +56,8 @@ h1{
     padding-left: 15px;
     padding-bottom: 15px;
     text-indent: 0px;
-    height: 230px;
-    width : 150px;
-    
+    height: 530px;
+    width : 530px;
 }
 
 .article1, .article2, .article3, .article4, .addedArticle{
