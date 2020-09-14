@@ -14,21 +14,20 @@ h1{
     justify-content: space-around;
 }
 .all-article{
-    margin-top: 35px;
-    margin-bottom: 150px;
-    margin-left: 80px;
-    margin-right: 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
 }
 
 .all-article h2{
     text-transform: uppercase;
     text-decoration: underline;
-    text-align: justify;
     padding-top: 15px;
 }
 
 .article1, .article2, .article3,.article4, .addedArticle  p{
-    text-align: justify;
+   
     padding-top: 15px;
 }
 
@@ -53,6 +52,10 @@ h1{
     
 }
 
+.article1, .article2, .article3, .article4, .addedArticle{
+    width: 50%;
+    height: 50%;
+}
 .formulaire{
     text-align: center;
     background-color: #f5f5f5;
