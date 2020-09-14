@@ -13,56 +13,21 @@ h1{
     justify-content: space-around;
 }
 
-.all-article{
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
 
-.all-article h2{
-    text-transform: uppercase;
-    text-decoration: underline;
-    padding-top: 15px;
-}
-
-.all-article p{
-    position: absolute;
+.article1 img, .article2 img, .addedArticle img, .article3 img, .article4 img{
     
-    opacity : 0;
-    transition : opacity .6s;
-}
-
-.all-article  p:hover{
-    opacity : 1;
-}
-
-.article1, .article2, .article3,.article4, .addedArticle  p{
-    padding-top: 15px;
-}
-
-.article1 img, .article3 img, .addedArticle img{
-    float : left;
     text-align: center;
     padding-right: 15px;
     padding-bottom: 15px;
-    text-indent: 0px;
-    height: 530px;
-    width : 530px;
-}
-.article2 img, .article4 img{
-    float : right;
-    text-align: center;
-    padding-left: 15px;
-    padding-bottom: 15px;
-    text-indent: 0px;
-    height: 530px;
-    width : 530px;
+    height: 300px;
+    width : 300px;
+
 }
 
-.article1, .article2, .article3, .article4, .addedArticle{
-    width: 50%;
-    height: 50%;
+.article1 p, .article2 p,.article3 p,.article4 p{
+    position: absolute;
+    height: 300px;
+    width : 300px;
 }
 .formulaire{
     text-align: center;
@@ -78,3 +43,11 @@ footer{
     background-color: rgb(235, 184, 193);
 }
 
+.all-article p{
+    opacity : 0;
+    transition : opacity .6s;
+}
+
+.all-article  p:hover{
+    opacity : 1;
+}
