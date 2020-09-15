@@ -89,24 +89,23 @@
       var lastKey = "none";
       document.addEventListener('keydown', ctrlZ);
 
+
       
         function addArticle(){
             const allArticle = document.querySelector("div");
-            
-
 
             let division = document.createElement("div");
             division.setAttribute('class', 'addedArticle');
             division.setAttribute('id', 'article'+i);
             allArticle.appendChild(division);
 
-            let title = document.createElement("h2");
-            title.textContent = document.getElementById("pic-title").value;
-            division.appendChild(title);
+            let atitle = document.createElement("h2");
+            atitle.textContent = document.getElementById("pic-title").value;
+            division.appendChild(atitle);
 
-            let description = document.createElement("p");
-            description.textContent = document.getElementById("pic-description").value;
-            division.appendChild(description);
+            let adescription = document.createElement("p");
+            adescription.textContent = document.getElementById("pic-description").value;
+            division.appendChild(adescription);
 
             let img = document.createElement("img");
             img.src = document.getElementById("pic-url").value;
@@ -121,6 +120,37 @@
             division.appendChild(removeBtn); 
 
             i = i+1;
+
+        }
+
+        function addArticleBis(title, description, link){
+            let division = document.createElement("div");
+            division.setAttribute('class', 'addedArticle');
+            division.setAttribute('id', 'article'+i);
+           
+            let atitle = document.createElement("h2");
+            atitle.innerText = title;
+            division.appendChild(atitle);
+
+            let adescription = document.createElement("p");
+            adescription.innerText = description;
+            division.appendChild(adescription);
+
+            let img = document.createElement("img");
+            img.src = link;
+            division.appendChild(img);
+
+            let removeBtn = document.createElement("button");
+            removeBtn.textContent = '❌';
+            removeBtn.setAttribute('class', 'btn-delete');
+            removeBtn.setAttribute('id', 'btn-delete'+i);
+            removeBtn.setAttribute('onclick', 'removeArticleFunction()');
+            removeBtn.addEventListener('click',function(){removeArticleFunction(division)});
+            division.appendChild(removeBtn); 
+
+            document.querySelector("#allArticleId").appendChild(division);
+            i = i+1;
+
 
         }
 
@@ -179,7 +209,7 @@
             .then(function (data){
                 console.log('data', data);
                 for (var j = 0; j < data.length; j++) {
-                    addArticle(data[j]['title'], data[j]['content'], data[j]['url'])
+                    addArticleBis(data[j]['title'], data[j]['content'], data[j]['url'])
                 }
             })
         }
