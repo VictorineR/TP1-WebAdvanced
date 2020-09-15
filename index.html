@@ -14,47 +14,42 @@
     </header>
 
     <main>
-        <div class="all-article">
-            <div class="article1">
+        <div class="all-article" id="allArticleId">
+            <div class="article1" id="article1">
                 
                 <h2>Zeus</h2>
-                <div class="delete-button">
-                    <button type="button" id="btn-delete" onclick="removeArticle()">❌</button>
-                </div>
                 <p>Zeus (en grec ancien Ζεύς / Zeús) est le dieu suprême dans la mythologie grecque. Fils du titan Cronos et de la titanide Rhéa, marié à sa sœur Héra1, il a engendré, avec cette déesse et avec d'autres, plusieurs dieux et déesses, et, avec des mortelles, de nombreux héros, comme l'a expliqué la théogonie d'Hésiode (VIIIe siècle av. J.-C.)2.
                 Zeus est fréquemment représenté par des artistes grecs dans l'une des deux poses suivantes : debout, s'avançant avec un tonnerre dans sa main droite levée ou assis en majesté. </p>
+                
                 <img src="img/Zeus.jpg">
+                <button type="button" class="btn-delete" id="btn-delete1" onclick="removeArticle()">❌</button>
             </div>
 
-            <div class="article2">
+            <div class="article2" id="article2">
                 
                 <h2>Poséidon</h2>
-                <div class="delete-button">
-                    <button type="button" id="btn-delete" onclick="removeArticle()">❌</button>
-                </div>
                 <p>Poséidon (en grec ancien Ποσειδῶν / Poseidỗn, en crétois, en béotien Ποτειδάων / Poteidáôn, en latin Neptūnus) est le dieu de la mer et des océans, ainsi que l'« ébranleur du sol » — dieu des tremblements de terre et des sources dans la mythologie grecque. Son symbole principal est le trident, qu'il reçoit des Cyclopes pendant la Titanomachie, il est aussi symbolisé par le dauphin, et surtout le cheval mais encore le taureau. Les Romains l'assimilent à un Neptune originel, peu fourni alors en mythe, mais avec lequel il finit par se confondre totalement.</p>
                 <img src="img/Poseidon.jpg">
+                <button type="button" class="btn-delete" id="btn-delete2" onclick="removeArticle()">❌</button>
             </div>
 
-            <div class="article3">
+            <div class="article3" id="article3">
                 
                 <h2>Hades</h2> 
-                <div class="delete-button">
-                    <button type="button" id="btn-delete" onclick="removeArticle()">❌</button>
-                </div>    
                 <p>Dans la mythologie grecque, Hadès (en grec ancien ᾍδης ou Ἅιδης / Háidês) est une divinité chthonienne, frère aîné de Zeus et de Poséidon. Comme Zeus gouverne le Ciel et Poséidon la Mer, Hadès règne sous la terre et pour cette raison il est souvent considéré comme le « maître des Enfers ». Il est marié à Perséphone. Il correspond au Sarapis ptolémaïque et au Pluton romain. </p>
                 <img src="img/Hades.jpg">
+                <button type="button" class="btn-delete"  id="btn-delete3"onclick="removeArticle()">❌</button>
             </div>
 
-            <div class="article4">
+            <div class="article4" id="article4">
                 
                 <h2>Hera</h2>
-                <div class="delete-button">
-                    <button type="button" id="btn-delete" onclick="removeArticle()">❌</button>
-                </div>
                 <p>Dans la religion grecque antique, Héra ou Héré (en grec ancien (attique) Ἥρα / Hêra ou en ionien Ἥρη / Hêrê) est une déesse de la mythologie grecque. Elle est la fille des Titans Cronos et Rhéa, et la sœur et la femme de Zeus. C'est aussi la sœur de Déméter, d'Hadès, de Poséidon et d'Hestia. Elle est la protectrice des femmes et la déesse du mariage, gardienne de la fécondité du couple et des femmes en couches.</p>
                 <img src="img/Hera.jpg" >
+                <button type="button" class="btn-delete"  id="btn-delete4"onclick="removeArticle()">❌</button>
             </div>
+
+            
         </div>
 
         <div class="formulaire">
@@ -78,40 +73,34 @@
                 <div class="send-button">
                     <button type="button" id="btn-send" onclick="addArticle()">Send article</button>
                 </div>
-                <div class="createTask">
-                    <button type="button"onclick = "getTasks()">Download articles</button>
+                <div class="download-button">
+                    <button type="button" id="btn-download" onclick="downloadArticles()">download articles</button>
                 </div>
+                
             </form>
         </div>
     </main>
-
 
     <footer>
         <p>Victor GARNIER & Victorine RICHARD</p>
     </footer>
     
-
     <script>
+      
+        let i = 0;
+        let j = 0;
       
         function addArticle(){
             const allArticle = document.querySelector("div");
 
             let division = document.createElement("div");
             division.setAttribute('class', 'addedArticle');
+            division.setAttribute('id', 'article'+i);
             allArticle.appendChild(division);
 
             let title = document.createElement("h2");
             title.textContent = document.getElementById("pic-title").value;
             division.appendChild(title);
-
-            let divisionDelete = document.createElement("div");
-            divisionDelete.setAttribute('class', 'delete-button');
-            division.appendChild(divisionDelete);
-
-            let removeBtn = document.createElement("button");
-            removeBtn.textContent = '❌';
-            removeBtn.setAttribute('id', "btn-delete");
-            divisionDelete.appendChild(removeBtn);
 
             let description = document.createElement("p");
             description.textContent = document.getElementById("pic-description").value;
@@ -121,31 +110,37 @@
             img.src = document.getElementById("pic-url").value;
             division.appendChild(img);
 
-            onsubmit="return false";
+            let removeBtn = document.createElement("button");
+            removeBtn.textContent = '❌';
+            removeBtn.setAttribute('class', 'btn-delete');
+            removeBtn.setAttribute('id', 'btn-delete'+i);
+            removeBtn.setAttribute('onclick', 'removeArticle()');
+            division.appendChild(removeBtn); 
+
+            i = i+1;
+
         }
 
-        let btnRemove = getElementById('btn-delete');
-        btnRemove.onclick() = removeArticle;
-
-        function removeArticle(){
-            alert("Hello");
-    
-    
+        function removeArticle(article1Id){
+            
+            var elem = document.getElementById('article1Id');
+            elem.parentNode.removeChild();
         }
 
-        function getTasks() 
-        {
+
+
+        function downloadArticles(){
             fetch('https://my-json-server.typicode.com/musinux/fake-json/articles')
             .then(response => response.json())
-            .then(function (data) 
-            {
-                console.log('data', data)
-
-                var i = 0;
-                for (i; i< 5; i ++)
-                    addArticle(data[i].title, data[i].description, data[i].img);
+            
+            .then(function (data){
+                console.log('data', data);
+                for (var j = 0; j < data.length; j++) {
+                    addArticle(data[j]['title'], data[j]['content'], data[j]['url'])
+                }
             })
         }
+        
     </script>
 </body>
 </html>
