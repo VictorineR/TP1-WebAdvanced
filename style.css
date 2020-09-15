@@ -1,16 +1,22 @@
 html{
-    background-color: #fff;
+    background-color: rgba(181, 252, 140, 0.719);
     
 }
 
 header{
-    background-color: rgb(235, 184, 193);
+    background-color: rgba(5, 196, 5, 0.664);
     width: 100%;
+}
+
+*{
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 h1{
     display : flex ;
     justify-content: space-around;
+    text-transform: uppercase;
 }
 
 h2{
@@ -21,7 +27,7 @@ h2{
 .article1 img, .article2 img, .addedArticle img, .article3 img, .article4 img{
     position: center;
     text-align: center;
-    padding-right: 15px;
+    padding-right: 12px;
     padding-bottom: 15px;
     height: 300px;
     width : 300px;
@@ -47,7 +53,7 @@ footer p{
 }
 
 footer{
-    background-color: rgb(235, 184, 193);
+    background-color: rgb(5, 196, 5);
 }
 
 .all-article p{
@@ -67,11 +73,11 @@ footer{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-
 }
 
 .btn-delete{
     position: absolute;
+    margin-right: 100px;
 }
 
 form{
