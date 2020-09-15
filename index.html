@@ -82,12 +82,14 @@
     <script>
       
       let i = 5;
-      let lastPress = "none";
+      
+      var lastKey = "none";
       document.addEventListener('keydown', ctrlZ);
 
       
         function addArticle(){
             const allArticle = document.querySelector("div");
+            
 
 
             let division = document.createElement("div");
@@ -126,6 +128,8 @@
         var link = document.querySelector("#pic-url");
         var sendButton = document.querySelector("#btn-send");
 
+        var deletedArticle;
+
         var deleteArticle1 = document.querySelector("#btn-delete1");
         deleteArticle1.addEventListener('click', function(){removeArticleFunction(deleteArticle1.parentNode)});
 
@@ -142,19 +146,26 @@
 
         function removeArticleFunction(el){
     
-            if (this.parentNode !== null){
-                el.parentNode.removeChild(el);  
+            if (this.deletedArticle == undefined){
+                this.deletedArticle = [el];
+            }
+            else{
+                this.deletedArticle.push(el);
             }
           
+            el.parentNode.removeChild(el);  
         }
 
         function ctrlZ(el){
             console.log(el);
-            if(lastPress =="ControlLeft" && el.code == "KeyW"){
+            if(lastKey =="ControlLeft" && el.code == "KeyW"){
                 console.log("Control+Z pressed");
+                document.querySelector("#allArticleId").appendChild(deletedArticle[deletedArticle.length - 1]);
+                deletedArticle.pop();
+
             }
             else{
-                lastPress = el.code;
+                lastKey = el.code;
             }
         }
 
