@@ -123,6 +123,21 @@
             var elem = document.getElementById('article1Id');
             elem.parentNode.removeChild();
         }
+
+        function getTasks() 
+        {
+            fetch('https://my-json-server.typicode.com/musinux/fake-json/articles')
+            .then(response => response.json())
+            .then(function (data) 
+            {
+                console.log('data', data)
+
+                var i = 0;
+                for (i; i< 5; i ++)
+                    addArticle(data[i].title, data[i].description, data[i].img);
+            })
+        }
+        
     </script>
 </body>
 </html>
