@@ -22,7 +22,7 @@
                 Zeus est fréquemment représenté par des artistes grecs dans l'une des deux poses suivantes : debout, s'avançant avec un tonnerre dans sa main droite levée ou assis en majesté. </p>
                 
                 <img src="img/Zeus.jpg">
-                <button type="button" class="btn-delete" id="btn-delete1" onclick="removeArticle()">❌</button>
+                <button type="button" class="btn-delete" id="btn-delete1" onclick="removeArticleFunction()">❌</button>
             </div>
 
             <div class="article2" id="article2">
@@ -30,7 +30,7 @@
                 <h2>Poséidon</h2>
                 <p>Poséidon (en grec ancien Ποσειδῶν / Poseidỗn, en crétois, en béotien Ποτειδάων / Poteidáôn, en latin Neptūnus) est le dieu de la mer et des océans, ainsi que l'« ébranleur du sol » — dieu des tremblements de terre et des sources dans la mythologie grecque. Son symbole principal est le trident, qu'il reçoit des Cyclopes pendant la Titanomachie, il est aussi symbolisé par le dauphin, et surtout le cheval mais encore le taureau. Les Romains l'assimilent à un Neptune originel, peu fourni alors en mythe, mais avec lequel il finit par se confondre totalement.</p>
                 <img src="img/Poseidon.jpg">
-                <button type="button" class="btn-delete" id="btn-delete2" onclick="removeArticle()">❌</button>
+                <button type="button" class="btn-delete" id="btn-delete2" onclick="removeArticleFunction()">❌</button>
             </div>
 
             <div class="article3" id="article3">
@@ -38,7 +38,7 @@
                 <h2>Hades</h2> 
                 <p>Dans la mythologie grecque, Hadès (en grec ancien ᾍδης ou Ἅιδης / Háidês) est une divinité chthonienne, frère aîné de Zeus et de Poséidon. Comme Zeus gouverne le Ciel et Poséidon la Mer, Hadès règne sous la terre et pour cette raison il est souvent considéré comme le « maître des Enfers ». Il est marié à Perséphone. Il correspond au Sarapis ptolémaïque et au Pluton romain. </p>
                 <img src="img/Hades.jpg">
-                <button type="button" class="btn-delete"  id="btn-delete3"onclick="removeArticle()">❌</button>
+                <button type="button" class="btn-delete"  id="btn-delete3"onclick="removeArticleFunction()">❌</button>
             </div>
 
             <div class="article4" id="article4">
@@ -46,7 +46,7 @@
                 <h2>Hera</h2>
                 <p>Dans la religion grecque antique, Héra ou Héré (en grec ancien (attique) Ἥρα / Hêra ou en ionien Ἥρη / Hêrê) est une déesse de la mythologie grecque. Elle est la fille des Titans Cronos et Rhéa, et la sœur et la femme de Zeus. C'est aussi la sœur de Déméter, d'Hadès, de Poséidon et d'Hestia. Elle est la protectrice des femmes et la déesse du mariage, gardienne de la fécondité du couple et des femmes en couches.</p>
                 <img src="img/Hera.jpg" >
-                <button type="button" class="btn-delete"  id="btn-delete4"onclick="removeArticle()">❌</button>
+                <button type="button" class="btn-delete"  id="btn-delete4"onclick="removeArticleFunction()">❌</button>
             </div>
         </div>
 
@@ -85,6 +85,9 @@
     <script>
       
       let i = 5;
+      let lastPress = "none";
+      document.addEventListener('keydown', ctrlZ);
+
       
         function addArticle(){
             const allArticle = document.querySelector("div");
@@ -111,17 +114,51 @@
             removeBtn.textContent = '❌';
             removeBtn.setAttribute('class', 'btn-delete');
             removeBtn.setAttribute('id', 'btn-delete'+i);
-            removeBtn.setAttribute('onclick', 'removeArticle()');
+            removeBtn.setAttribute('onclick', 'removeArticleFunction()');
+            removeBtn.addEventListener('click',function(){removeArticleFunction(division)});
             division.appendChild(removeBtn); 
 
             i = i+1;
 
         }
 
-        function removeArticle(article1Id){
-            
-            var elem = document.getElementById('article1Id');
-            elem.parentNode.removeChild();
+        document.addEventListener('DOMContentLoaded', function(){
+
+        var title = document.querySelector("#pic-title");
+        var description = document.querySelector("#pic-description");
+        var link = document.querySelector("#pic-url");
+        var sendButton = document.querySelector("#btn-send");
+
+        var deleteArticle1 = document.querySelector("#btn-delete1");
+        deleteArticle1.addEventListener('click', function(){removeArticleFunction(deleteArticle1.parentNode)});
+
+        var deleteArticle2 = document.querySelector("#btn-delete2");
+        deleteArticle2.addEventListener('click', function(){removeArticleFunction(deleteArticle2.parentNode)});
+
+        var deleteArticle3 = document.querySelector("#btn-delete3");
+        deleteArticle3.addEventListener('click', function(){removeArticleFunction(deleteArticle3.parentNode)});
+
+        var deleteArticle4 = document.querySelector("#btn-delete4");
+        deleteArticle4.addEventListener('click', function(){removeArticleFunction(deleteArticle4.parentNode)});
+
+        });
+
+        function removeArticleFunction(el){
+    
+            if (this.parentNode !== null){
+                el.parentNode.removeChild(el);  
+            }
+          
+        }
+
+        function ctrlZ(el){
+            console.log(el);
+            if(lastPress =="ControlLeft" && el.code == "KeyW"){
+                console.log("Control+Z pressed");
+            }
+            else{
+                lastPress = el.code;
+            }
         }
 
         function getTasks() 
@@ -137,7 +174,7 @@
                     addArticle(data[i].title, data[i].description, data[i].img);
             })
         }
-        
+
     </script>
 </body>
 </html>
