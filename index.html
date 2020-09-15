@@ -48,8 +48,6 @@
                 <img src="img/Hera.jpg" >
                 <button type="button" class="btn-delete"  id="btn-delete4"onclick="removeArticleFunction()">❌</button>
             </div>
-
-            
         </div>
 
         <div class="formulaire">
@@ -71,24 +69,31 @@
                     <button type="button" id="btn-send" onclick="addArticle()">Send article</button>
                 </div>
                 <div class="download-button">
-                    <button type="button" id="btn-download" onclick="downloadArticles()">download articles</button>
+                    <button type="button" id="btn-download" onclick="downloadArticles()">Download articles</button>
                 </div>
-            
+                
             </form>
         </div>
     </main>
+
 
     <footer>
         <p>Victor GARNIER & Victorine RICHARD</p>
     </footer>
     
+
     <script>
       
-        let i = 0;
+      let i = 5;
+      
+      var lastKey = "none";
+      document.addEventListener('keydown', ctrlZ);
+
       
         function addArticle(){
             const allArticle = document.querySelector("div");
             
+
 
             let division = document.createElement("div");
             division.setAttribute('class', 'addedArticle');
@@ -167,7 +172,6 @@
             }
         }
 
-
         function downloadArticles(){
             fetch('https://my-json-server.typicode.com/musinux/fake-json/articles')
             .then(response => response.json())
@@ -179,7 +183,6 @@
                 }
             })
         }
-        
     </script>
 </body>
 </html>
