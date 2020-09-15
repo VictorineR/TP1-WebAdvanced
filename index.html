@@ -78,10 +78,9 @@
                 <div class="send-button">
                     <button type="button" id="btn-send" onclick="addArticle()">Send article</button>
                 </div>
-                <div class="delete-button">
-                    <button type="button" id="btn-delete" onclick="removeArticle()">❌</button>
+                <div class="createTask">
+                    <button type="button"onclick = "getTasks()">Download articles</button>
                 </div>
-                
             </form>
         </div>
     </main>
@@ -106,10 +105,12 @@
             division.appendChild(title);
 
             let divisionDelete = document.createElement("div");
-            division.setAttribute('class', 'delete-button');
+            divisionDelete.setAttribute('class', 'delete-button');
             division.appendChild(divisionDelete);
 
             let removeBtn = document.createElement("button");
+            removeBtn.textContent = '❌';
+            removeBtn.setAttribute('id', "btn-delete");
             divisionDelete.appendChild(removeBtn);
 
             let description = document.createElement("p");
@@ -123,11 +124,27 @@
             onsubmit="return false";
         }
 
+        let btnRemove = getElementById('btn-delete');
+        btnRemove.onclick() = removeArticle;
+
         function removeArticle(){
-     
+            alert("Hello");
+    
+    
+        }
 
-            
+        function getTasks() 
+        {
+            fetch('https://my-json-server.typicode.com/musinux/fake-json/articles')
+            .then(response => response.json())
+            .then(function (data) 
+            {
+                console.log('data', data)
 
+                var i = 0;
+                for (i; i< 5; i ++)
+                    addArticle(data[i].title, data[i].description, data[i].img);
+            })
         }
     </script>
 </body>
