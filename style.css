@@ -30,6 +30,7 @@ h2{
     position: absolute;
     height: 300px;
     width : 300px;
+    padding-top: 15px;
 
     color: aqua;
 }
@@ -61,4 +62,8 @@ footer{
     justify-content: space-between;
     flex-wrap: wrap;
 
+}
+
+.btn-delete{
+    position: absolute;
 }
